@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'Language.dart';
+import 'Theme.dart';
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
@@ -22,7 +24,8 @@ class _SettingsPageState extends State<SettingsPage> {
               Icons.person_pin,
             ),
             label: Text("Your account"),
-            onPressed: () {},
+            onPressed: () {
+            },
           ),
           OutlineButton.icon(
             //边框按钮组件
@@ -30,7 +33,11 @@ class _SettingsPageState extends State<SettingsPage> {
               Icons.local_mall,
             ),
             label: Text("Theme"),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ThemePage()) //changed into the route to Theme Page
+              );
+            },
           ),
           OutlineButton.icon(
             //边框按钮组件
@@ -38,7 +45,11 @@ class _SettingsPageState extends State<SettingsPage> {
               Icons.language,
             ),
             label: Text("Language"),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Language()) //changed into the route to Language Page
+              );
+            },
           ),
           OutlineButton.icon(
             //边框按钮组件

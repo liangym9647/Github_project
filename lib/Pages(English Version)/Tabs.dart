@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'Tabs/Trend.dart';
+import 'Tabs/Explore.dart';
 import 'Tabs/Dynamic.dart';
 import 'Tabs/My.dart';
 import 'User.dart'; //引入User.dart，点击侧边栏的“我的空间”会自动实现路由跳转，跳至UserPage
-import 'TextField.dart';
+import 'SearchPage.dart';
+import 'Login.dart';
+import 'Settings/Settings.dart';
 
 //类似Dart多态的import
 
@@ -19,13 +21,18 @@ class _TabsState extends State<Tabs> {
   int _currentIndex = 0; //Index为第一个
   List _pageList = [
     DynamicPage(),
-    TrendPage(),
+    ExplorePage(),
     MyPage(),
+    LoginPage(),
   ]; //将三个页面的组件都放入一个List里面，方便调用
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: Colors.deepOrange,
+      ),
       child: Scaffold(
+
         appBar: AppBar(
           title: Text("Welcome to GitHub"),
           actions: <Widget>[
@@ -34,7 +41,7 @@ class _TabsState extends State<Tabs> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => TextFieldDemoPage(),
+                    builder: (context) => TextDemoPage(),
                   ),
                 ); //有返回键的界面
               },
@@ -64,17 +71,21 @@ class _TabsState extends State<Tabs> {
           items: [
             //有什么底部导航
             BottomNavigationBarItem(
-              icon: Icon(Icons.wallpaper), //图标
-              title: Text("Dynamic"), //导航条名字
+              icon: Icon(Icons.email), //图标
+              title: Text("Notifications"), //导航条名字
             ),
 
             BottomNavigationBarItem(
-              icon: Icon(Icons.timeline),
-              title: Text("Trend"),
+              icon: Icon(Icons.explore),
+              title: Text("Explore"),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.accessibility),
               title: Text("My"),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.flag),
+              title: Text("Login"),
             ),
           ],
         ), //bottomNavigationBar在Scaffold组件里面，里面为语句
@@ -107,10 +118,6 @@ class _TabsState extends State<Tabs> {
                           fit: BoxFit.cover, //图片自适应填满头部部分
                         ),
                       ),
-                      // otherAccountsPictures: <Widget>[ //顶部UserAccountsDrawerHeader的右边插入一些图片，用处不大
-                      //   Image.network("https://www.itying.com/images/flutter/4.png"),
-                      //   Image.network("https://www.itying.com/images/flutter/5.png"),
-                      // ],
                     ),
                   )
                 ],
@@ -122,7 +129,7 @@ class _TabsState extends State<Tabs> {
                   //ListTile开头头像语句
                   child: Icon(Icons.home), //home的头像
                 ),
-                title: Text("我的空间"), //文字内容
+                title: Text("Home",style: TextStyle(fontSize: 18),), //文字内容
                 onTap: () {
                   //onTap: 对侧边栏内容进行跳转，点击“我的空间”会跳转到User.dart的UserPage
                   Navigator.of(context).pop(); //当路由跳转后点击返回，侧边栏会隐藏起来不会出现
@@ -136,14 +143,26 @@ class _TabsState extends State<Tabs> {
                 leading: CircleAvatar(
                   child: Icon(Icons.people),
                 ),
-                title: Text("用户中心"),
+                title: Text("Center",style: TextStyle(fontSize: 18),),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => UserPage()), //跳转语句
+                  );
+                },
               ),
               Divider(),
               ListTile(
                 leading: CircleAvatar(
                   child: Icon(Icons.settings),
                 ),
-                title: Text("设置中心"),
+                title: Text("Settings",style: TextStyle(fontSize: 18),),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SettingsPage()), //跳转语句
+                  ); //有返回键的界面
+                },
               ),
               Divider(),
             ],

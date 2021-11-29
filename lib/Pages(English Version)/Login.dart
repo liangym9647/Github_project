@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'JdText.dart';
-import '../widget/JdButton.dart';
+import 'widget/JdText.dart';
+import 'widget/JdButton.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -37,8 +37,8 @@ class _LoginPageState extends State<LoginPage> {
                 height: 160,
                 width: 160,
                 child: Image.network(
-'https:www.itying.com/images/flutter/list5.jpg',
- fit: BoxFit.cover),
+                    'https://www.influxdata.com/wp-content/uploads/GitHub-logo.jpg',
+                    fit: BoxFit.cover),
                 // child: Image.network(
                 //     'https://www.itying.com/images/flutter/list5.jpg',
                 //     fit: BoxFit.cover),
@@ -46,51 +46,46 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 30),
             JdText(
-              text: "请输入用户名",
+              text: "Account Name",
               onChanged: (value) {
                 print(value);
               },
             ),
             SizedBox(height: 10),
             JdText(
-              text: "请输入密码",
+              text: "Password",
               password: true,
               onChanged: (value) {
                 print(value);
               },
             ),
-
             SizedBox(height: 10),
-
             Container(
-              padding: EdgeInsets.all(ScreenAdapter.width(20)),
+              padding: EdgeInsets.all(20),
               child: Stack(
                 children: <Widget>[
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('忘记密码'),
+                    child: Text('Forget PassWord?'),
                   ),
                   Align(
                     alignment: Alignment.centerRight,
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pushNamed(context, '/registerFirst');
                       },
-                      child: Text('新用户注册'),
+                      child: Text('Sign in'),
                     ),
                   )
                 ],
               ),
             ),
-
             SizedBox(height: 20),
             JdButton(
-              text:"登录",
+              text: "Log in",
               color: Colors.red,
               height: 74,
-              cb: (){
-
-              },
+              cb: () {},
             )
           ],
         ),
