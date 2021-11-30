@@ -21,20 +21,20 @@ class _CertainPageState extends State<CertainPage> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Warning !'),
-      content: Text('Are you sure to select this ?'),
+      title: Text('警告 !'),
+      content: Text('你确定选择吗 ?'),
       backgroundColor: Colors.lightBlueAccent,
       elevation: 24,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       actions: <Widget>[
         FlatButton(
-          child: Text('Cancel'),
+          child: Text('取消'),
           onPressed: () {
             Navigator.pop(context); //出栈，返回至上一次，当触发对应按钮后，让result接收context的值
           },
         ),
         FlatButton(
-            child: Text('Confirm'),
+            child: Text('确定'),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context, {arguments}) => MyApp(

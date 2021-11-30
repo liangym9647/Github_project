@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Counter with ChangeNotifier{
+class Counter_Chinese with ChangeNotifier{
   int Color=1; //定义初始状态
   int get count=>Color;//获取状态
   Change_Color(){

@@ -9,15 +9,15 @@ import 'Settings/Settings.dart';
 
 //类似Dart多态的import
 
-class Tabs extends StatefulWidget {
+class Tabs_Chinese extends StatefulWidget {
   //stful快捷键生成
-  const Tabs({Key? key}) : super(key: key);
+  const Tabs_Chinese({Key? key}) : super(key: key);
 
   @override
-  _TabsState createState() => _TabsState();
+  _Tabs_ChineseState createState() => _Tabs_ChineseState();
 }
 
-class _TabsState extends State<Tabs> {
+class _Tabs_ChineseState extends State<Tabs_Chinese> {
   int _currentIndex = 0; //Index为第一个
   List _pageList = [
     DynamicPage(),
@@ -34,7 +34,7 @@ class _TabsState extends State<Tabs> {
       child: Scaffold(
 
         appBar: AppBar(
-          title: Text("Welcome to GitHub"),
+          title: Text("欢迎来到GitHub"),
           actions: <Widget>[
             //在bar的右侧第二个设置一个搜索图标，监听
             IconButton(
@@ -72,20 +72,20 @@ class _TabsState extends State<Tabs> {
             //有什么底部导航
             BottomNavigationBarItem(
               icon: Icon(Icons.email), //图标
-              title: Text("Notifications"), //导航条名字
+              title: Text("通知"), //导航条名字
             ),
 
             BottomNavigationBarItem(
               icon: Icon(Icons.explore),
-              title: Text("Explore"),
+              title: Text("探索"),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.accessibility),
-              title: Text("My"),
+              title: Text("我的"),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.flag),
-              title: Text("Login"),
+              title: Text("登录"),
             ),
           ],
         ), //bottomNavigationBar在Scaffold组件里面，里面为语句
@@ -129,7 +129,7 @@ class _TabsState extends State<Tabs> {
                   //ListTile开头头像语句
                   child: Icon(Icons.home), //home的头像
                 ),
-                title: Text("Home",style: TextStyle(fontSize: 18),), //文字内容
+                title: Text("主页",style: TextStyle(fontSize: 18),), //文字内容
                 onTap: () {
                   //onTap: 对侧边栏内容进行跳转，点击“我的空间”会跳转到User.dart的UserPage
                   Navigator.of(context).pop(); //当路由跳转后点击返回，侧边栏会隐藏起来不会出现
@@ -143,7 +143,7 @@ class _TabsState extends State<Tabs> {
                 leading: CircleAvatar(
                   child: Icon(Icons.people),
                 ),
-                title: Text("Center",style: TextStyle(fontSize: 18),),
+                title: Text("中心",style: TextStyle(fontSize: 18),),
                 onTap: () {
                   Navigator.of(context).pop();
                   Navigator.of(context).push(
@@ -156,7 +156,7 @@ class _TabsState extends State<Tabs> {
                 leading: CircleAvatar(
                   child: Icon(Icons.settings),
                 ),
-                title: Text("Settings",style: TextStyle(fontSize: 18),),
+                title: Text("设置",style: TextStyle(fontSize: 18),),
                 onTap: () {
                   Navigator.of(context).pop();
                 },

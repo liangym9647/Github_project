@@ -17,12 +17,6 @@ class _MyPageState extends State<MyPage> {
   var website_name;
   @override
   Widget build(BuildContext context) {
-    var counterProvider = Provider.of<Counter>(context);
-    var Change_Text_Color;
-    counterProvider.Color == 1
-        ? Change_Text_Color = 6
-        : Change_Text_Color =
-            1; //if background color is black, text color will become white
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -40,15 +34,15 @@ class _MyPageState extends State<MyPage> {
                   radius: 60, //头像大小
                 ),
                 title: Text(
-                  "Username",
+                  "用户名",
                 ),
                 subtitle: Text(
-                  "0 followers   0 follwing",
+                  "0 粉丝   0 关注",
                 ),
               ),
               SizedBox(height: 20), //按钮之间设置一个距离以免连在一起
               Text(
-                "    My Work",
+                "    我的生涯",
                 style: TextStyle(fontSize: 23, fontWeight: FontWeight.w800),
               ),
               OutlineButton.icon(
@@ -57,7 +51,7 @@ class _MyPageState extends State<MyPage> {
                   Icons.event_available,
                   color: Colors.green,
                 ),
-                label: Text("Issues"),
+                label: Text("议题"),
                 onPressed: () {},
               ),
               OutlineButton.icon(
@@ -66,7 +60,7 @@ class _MyPageState extends State<MyPage> {
                   Icons.receipt,
                   color: Colors.red,
                 ),
-                label: Text("Repositories"),
+                label: Text("仓库"),
                 onPressed: () {},
               ),
               OutlineButton.icon(
@@ -75,14 +69,14 @@ class _MyPageState extends State<MyPage> {
                   Icons.person,
                   color: Colors.orange,
                 ),
-                label: Text("Organizations"),
+                label: Text("组织"),
                 onPressed: () {},
               ),
               SizedBox(
                 height: 50,
               ),
               Text(
-                "     Favorites",
+                "     最爱",
                 style: TextStyle(fontSize: 23, fontWeight: FontWeight.w800),
               ),
               OutlineButton.icon(
@@ -90,9 +84,9 @@ class _MyPageState extends State<MyPage> {
                   Icons.window,
                   color: Colors.blue,
                 ),
-                label: Text("Microsoft"),
+                label: Text("微软"),
                 onPressed: () {
-                  this.website_name = "Microsoft";
+                  this.website_name = "微软";
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => NewsPage(
@@ -108,7 +102,7 @@ class _MyPageState extends State<MyPage> {
                 icon: Icon(
                   Icons.computer,
                 ),
-                label: Text("Desktop"),
+                label: Text("桌面版"),
                 onPressed: () {
                   this.website_name = "Desktop";
                   Navigator.of(context).push(
@@ -124,7 +118,7 @@ class _MyPageState extends State<MyPage> {
                 height: 50,
               ),
               Text(
-                "     Others",
+                "     其他",
                 style: TextStyle(fontSize: 23, fontWeight: FontWeight.w800),
               ),
               OutlineButton.icon(
@@ -132,7 +126,7 @@ class _MyPageState extends State<MyPage> {
                 icon: Icon(
                   Icons.settings,
                 ),
-                label: Text("Settings"),
+                label: Text("设置"),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                           builder: (context, {arguments}) => SettingsPage(
@@ -142,7 +136,7 @@ class _MyPageState extends State<MyPage> {
               ),
               RaisedButton.icon(
                   icon: Icon(Icons.clear),
-                  label: Text("Log out"),
+                  label: Text("注销"),
                   color: Colors.red,
                   onPressed: () {}),
             ],

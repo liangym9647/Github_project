@@ -34,7 +34,6 @@ class _ExplorePageState extends State<ExplorePage> {
 
   @override
   Widget build(BuildContext context) {
-    var counterProvider = Provider.of<Counter>(context);
     return ListView(
       children: <Widget>[
         Container(
@@ -65,7 +64,7 @@ class _ExplorePageState extends State<ExplorePage> {
                 height: 5,
               ), //leave some space between two widgets
               Text(
-                "comment:Awesome list about all kinds of interesting topics",
+                "评论:Awesome list about all kinds of interesting topics",
                 style: TextStyle(fontSize: 16),
               ),
               SizedBox(
@@ -97,7 +96,7 @@ class _ExplorePageState extends State<ExplorePage> {
               Row(
                 children: <Widget>[
                   Icon(Icons.person),
-                  Text("512 contributors"),
+                  Text("512 评论者"),
                   Icon(Icons.keyboard_arrow_right),
                 ],
               ),
@@ -108,7 +107,7 @@ class _ExplorePageState extends State<ExplorePage> {
                   ? RaisedButton.icon(
                       //a button with an icon
                       icon: Icon(Icons.star_border), //types of the icon
-                      label: Text("Star"),
+                      label: Text("收藏"),
                       color: Colors.blue,
                       textColor: Colors.white,
                       onPressed: _change_true,
@@ -116,7 +115,7 @@ class _ExplorePageState extends State<ExplorePage> {
                   : RaisedButton.icon(
                       //a button with an icon
                       icon: Icon(Icons.star), //types of the icon
-                      label: Text("Starred"),
+                      label: Text("已收藏"),
                       color: Colors.red,
                       textColor: Colors.white,
                       onPressed: _change_false,

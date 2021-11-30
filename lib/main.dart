@@ -5,33 +5,57 @@ import 'Pages(English Version)/Tabs.dart'; //引入BottomNavigationBar组件，�
 //import Provider
 import 'package:provider/provider.dart';
 import 'Pages(English Version)/Color_Language_arguments.dart';
+import 'Pages(Chinese Version)/Color_Language_arguments.dart';
+import 'Pages(Chinese Version)/Tabs_Chinese.dart';
 
 void main() {
-  return runApp(MyApp());
+  return runApp(MyApp(
+    arguments: null,
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  var b = 7;
-  var a = 2;
+class MyApp extends StatefulWidget {
+  var arguments;
+  MyApp({Key? key, required this.arguments}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    var a;
+    var b;
+    if (widget.arguments == null) {
+      a = 1;
+      b = 3;
+    } else {
+      a = widget.arguments[0]; //1 white, 2 black
+      b = widget.arguments[1]; //3 English, 4 Chinese
+    }
+
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (_) => Counter(),
-          ), //https://pub.dev/packages/provider/example，
-        ],
-        child: MaterialApp(
-          theme: new ThemeData(
-            primarySwatch: Colors.yellow,
-            brightness: Brightness.light,
-          ),
-          debugShowCheckedModeBanner:
-              false, //remove the debug icon located on the top right of phone
-          home: Scaffold(
-            body:  Tabs()
-                , //select language
-          ),
-        ));
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => Counter(),
+        ), //https://pub.dev/packages/provider/example，
+        ChangeNotifierProvider(
+          create: (_) => Counter_Chinese(),
+        ),
+      ],
+      child: MaterialApp(
+
+        theme: ThemeData(
+          brightness: a == 1 ? Brightness.light : Brightness.dark, //day mode or night mode
+        ),
+
+        debugShowCheckedModeBanner:
+            false, //remove the debug icon located on the top right of phone
+        home: Scaffold(
+          body: b == 3 ? Tabs() : Tabs_Chinese(),
+        ),
+      ),
+    );
   }
 }

@@ -24,7 +24,7 @@ class _DynamicPageState extends State<DynamicPage> {
 
   @override
   Widget build(BuildContext context) {
-    var counterProvider=Provider.of<Counter>(context);
+    var counterProvider=Provider.of<Counter_Chinese>(context);
     change_color();
     return Scaffold(
       body:ListView(
@@ -33,7 +33,7 @@ class _DynamicPageState extends State<DynamicPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("You have not receive any notifications",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w800),)
+              Text("你还没有任何通知",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w800),)
             ],
           ),
           Card(
@@ -43,7 +43,7 @@ class _DynamicPageState extends State<DynamicPage> {
               children: <Widget>[
                 RaisedButton.icon(
                   icon: Icon(Icons.add_circle),
-                  label: Text("   Start Your First Project"),
+                  label: Text("   开始你的第一个项目"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {

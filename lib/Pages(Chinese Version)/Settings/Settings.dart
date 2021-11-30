@@ -22,13 +22,9 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    var counterProvider = Provider.of<Counter>(context);
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          title: Text("Settings"),
+          title: Text("设置"),
         ),
         body: ListView(
           padding: EdgeInsets.all(30),
@@ -38,7 +34,7 @@ class _SettingsPageState extends State<SettingsPage> {
               icon: Icon(
                 Icons.person_pin,
               ),
-              label: Text("Your account"),
+              label: Text("你的账号"),
               onPressed: () {},
             ),
             OutlineButton.icon(
@@ -46,7 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
               icon: Icon(
                 Icons.local_mall,
               ),
-              label: Text("Theme"),
+              label: Text("主题"),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) =>
@@ -59,7 +55,7 @@ class _SettingsPageState extends State<SettingsPage> {
               icon: Icon(
                 Icons.language,
               ),
-              label: Text("Language"),
+              label: Text("语言"),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) =>
@@ -72,12 +68,11 @@ class _SettingsPageState extends State<SettingsPage> {
               icon: Icon(
                 Icons.thumb_up,
               ),
-              label: Text("About GitHub"),
+              label: Text("关于 GitHub"),
               onPressed: () {},
             ),
           ],
         ),
-      ),
     );
   }
 }
